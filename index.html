@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>荒川わかもの探究プロジェクト｜参加者募集</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap');
+ 
+    :root {
+      --green-dark: #1a6b3a;
+      --green-main: #2d9b5a;
+      --green-light: #4cbb7a;
+      --green-pale: #e8f7ef;
+      --green-pale2: #c8ecda;
+      --yellow: #f9d84b;
+      --orange: #f4883d;
+      --text-dark: #1a2c1e;
+      --text-mid: #3d5c44;
+      --text-light: #6b8f74;
+      --white: #ffffff;
+      --shadow: 0 8px 32px rgba(45, 155, 90, 0.12);
+    }
+ 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f4fbf6;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+ 
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-main) 60%, var(--green-light) 100%);
+      color: white;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+ 
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+ 
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -60px;
+      width: 500px; height: 500px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+ 
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+      position: relative;
+      z-index: 1;
+    }
+ 
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+ 
+    .hero-badge span { font-size: 16px; }
+ 
+    .hero h1 {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    }
+ 
+    .hero h1 em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+ 
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      opacity: 0.88;
+      margin-bottom: 16px;
+    }
+ 
+    .hero-catch {
+      background: rgba(255,255,255,0.12);
+      border-left: 4px solid var(--yellow);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 24px;
+      margin: 32px 0;
+      font-size: 0.97rem;
+      line-height: 1.8;
+    }
+ 
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--yellow);
+      color: var(--green-dark);
+      font-weight: 900;
+      font-size: 1.05rem;
+      padding: 16px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(249,216,75,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+ 
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(249,216,75,0.5);
+    }
+ 
+    .hero-deadline {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      opacity: 0.75;
+    }
+ 
+    /* WAVE */
+    .wave {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-top: -2px;
+    }
+ 
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 72px 32px;
+    }
+ 
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+ 
+    .section-label {
+      display: inline-block;
+      background: var(--green-pale2);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+ 
+    h2 {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 32px;
+      line-height: 1.3;
+    }
+ 
+    h2 span { color: var(--green-light); }
+ 
+    /* ===== INTRO ===== */
+    .intro {
+      background: white;
+    }
+ 
+    .intro-lead {
+      font-size: 1.08rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+ 
+    .intro-highlight {
+      display: inline;
+      background: linear-gradient(transparent 60%, rgba(76,187,122,0.3) 60%);
+      font-weight: 700;
+    }
+ 
+    /* ===== SCHEDULE ===== */
+    .schedule {
+      background: var(--green-pale);
+    }
+ 
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+ 
+    .timeline-item {
+      display: flex;
+      gap: 0;
+      position: relative;
+    }
+ 
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 64px;
+      flex-shrink: 0;
+    }
+ 
+    .timeline-dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green-main);
+      color: white;
+      font-weight: 900;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(45,155,90,0.3);
+      position: relative;
+      z-index: 1;
+    }
+ 
+    .timeline-line {
+      width: 2px;
+      flex: 1;
+      background: var(--green-pale2);
+      min-height: 32px;
+    }
+ 
+    .timeline-item:last-child .timeline-line { display: none; }
+ 
+    .timeline-content {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      margin-left: 12px;
+      box-shadow: var(--shadow);
+      flex: 1;
+      border-left: 4px solid var(--green-light);
+      transition: transform 0.2s;
+    }
+ 
+    .timeline-content:hover { transform: translateX(4px); }
+ 
+    .timeline-date {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--green-main);
+      margin-bottom: 4px;
+    }
+ 
+    .timeline-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+ 
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+    }
+ 
+    /* ===== CATEGORY ===== */
+    .category {
+      background: white;
+    }
+ 
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+ 
+    .category-card {
+      border-radius: 20px;
+      padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+ 
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(45,155,90,0.18);
+    }
+ 
+    .category-card.junior {
+      background: linear-gradient(135deg, #e8f7ef, #d0eddf);
+      border: 2px solid var(--green-pale2);
+    }
+ 
+    .category-card.university {
+      background: linear-gradient(135deg, #edf6ff, #d6eaff);
+      border: 2px solid #c0d9f5;
+    }
+ 
+    .category-card.mentor {
+      background: linear-gradient(135deg, #fff8e8, #ffeec8);
+      border: 2px solid #f5dfa0;
+    }
+ 
+    .category-icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+ 
+    .category-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+ 
+    .junior .category-tag { background: var(--green-main); color: white; }
+    .university .category-tag { background: #3a87d4; color: white; }
+    .mentor .category-tag { background: var(--orange); color: white; }
+ 
+    .category-name {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+ 
+    .category-quota {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+ 
+    .category-desc {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+ 
+    /* ===== MESSAGE ===== */
+    .message {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-main));
+      color: white;
+      text-align: center;
+    }
+ 
+    .message h2 { color: var(--yellow); }
+ 
+    .message-body {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      opacity: 0.92;
+    }
+ 
+    .message-body strong {
+      color: var(--yellow);
+      font-weight: 700;
+    }
+ 
+    /* ===== INFO ===== */
+    .info {
+      background: var(--green-pale);
+    }
+ 
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+ 
+    .info-item {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 20px;
+      box-shadow: var(--shadow);
+    }
+ 
+    .info-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--green-main);
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+    }
+ 
+    .info-value {
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--text-dark);
+    }
+ 
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: white;
+      text-align: center;
+      padding: 80px 32px;
+    }
+ 
+    .cta-section h2 { margin-bottom: 16px; }
+ 
+    .cta-section p {
+      color: var(--text-light);
+      margin-bottom: 36px;
+      font-size: 0.97rem;
+    }
+ 
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-light));
+      color: white;
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 18px 48px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(45,155,90,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+ 
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(45,155,90,0.45);
+    }
+ 
+    .cta-deadline {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: var(--text-light);
+    }
+ 
+    .cta-deadline strong {
+      color: var(--orange);
+      font-weight: 700;
+    }
+ 
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 28px 32px;
+      font-size: 0.82rem;
+    }
+ 
+    footer strong { color: rgba(255,255,255,0.85); }
+ 
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      section { padding: 56px 20px; }
+      .hero-inner { padding: 60px 20px 48px; }
+      .category-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .btn-cta { padding: 16px 32px; font-size: 1rem; }
+    }
+ 
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+ 
+    .hero-inner > * {
+      animation: fadeUp 0.7s ease both;
+    }
+ 
+    .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.35s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.45s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.55s; }
+    .hero-inner > *:nth-child(6) { animation-delay: 0.65s; }
+  </style>
+</head>
+<body>
+ 
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span>🌿</span> 荒川わかもの団
+    </div>
+    <h1>
+      荒川わかもの<br>
+      <em>探究プロジェクト</em><br>
+      2026 夏
+    </h1>
+    <p class="hero-sub">6月の出会いから、8月のカタチまで。<br>この夏、区内を駆け巡る3ヶ月。</p>
+    <div class="hero-catch">
+      「ボランティアって何をすればいいの？」<br>
+      「将来のために、学校の外で何かに挑戦してみたい」<br><br>
+      そんな<strong>中高生・大学生</strong>のために、荒川区を舞台にした探究プログラムが始まります。
+    </div>
+    <a href="#apply" class="hero-cta">
+      📝 今すぐ応募する
+    </a>
+    <p class="hero-deadline">申込締切：2026年5月31日（日）</p>
+  </div>
+</section>
+ 
+<!-- WAVE -->
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+  <path fill="#ffffff" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
+</svg>
+ 
+<!-- ===== INTRO ===== -->
+<section class="intro">
+  <div class="container">
+    <span class="section-label">ABOUT</span>
+    <h2>地域の「現場」へ、<span>飛び込もう</span></h2>
+    <p class="intro-lead">
+      区内の「現場」を訪ね、そこで働く大人や大学生の先輩と交流しながら、<br>
+      <span class="intro-highlight">自分たちの手で地域活動をデザイン</span>してみませんか？<br><br>
+      福祉施設、伝統工芸、クリエイティブな活動拠点など、ふだん立ち入れない場所へ潜入。
+      見て、聞いて、動いて—この夏だけの特別な体験が待っています。
+    </p>
+  </div>
+</section>
+ 
+<!-- ===== SCHEDULE ===== -->
+<section class="schedule">
+  <div class="container">
+    <span class="section-label">SCHEDULE</span>
+    <h2>📅 全6回の<span>スケジュール</span></h2>
+    <div class="timeline">
+ 
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date">6月14日（日）</div>
+          <div class="timeline-title">🚀 キックオフ・ミーティング</div>
+          <div class="timeline-desc">チームビルディングと「探究」のコツを学ぶ</div>
+        </div>
+      </div>
+ 
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot">2</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date">6月28日（日）</div>
+          <div class="timeline-title">🏥 地域潜入：現場見学①</div>
+          <div class="timeline-desc">区内の福祉・コミュニティ施設を訪問＆交流</div>
+        </div>
+      </div>
+ 
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date">7月12日（日）</div>
+          <div class="timeline-title">🎨 地域潜入：現場見学②</div>
+          <div class="timeline-desc">伝統工芸やクリエイティブな活動拠点を訪問</div>
+        </div>
+      </div>
+ 
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot">4</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date">7月26日（日）</div>
+          <div class="timeline-title">💡 中間ワークショップ</div>
+          <div class="timeline-desc">これまでの気づきを整理し、自分たちの企画を練る</div>
+        </div>
+      </div>
+ 
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot">5</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date">8月9日（日）</div>
+          <div class="timeline-title">⚡ 実践：チャレンジDAY</div>
+          <div class="timeline-desc">地域イベントや施設でのミニ活動を実践！</div>
+        </div>
+      </div>
+ 
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot" style="background:var(--orange);">6</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content" style="border-color:var(--orange);">
+          <div class="timeline-date" style="color:var(--orange);">8月23日（日）</div>
+          <div class="timeline-title">🏆 ファイナルプレゼン・修了式</div>
+          <div class="timeline-desc">3ヶ月の成果発表と「これから」を語り合う</div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== CATEGORY ===== -->
+<section class="category">
+  <div class="container">
+    <span class="section-label">WHO</span>
+    <h2>👥 募集<span>カテゴリー</span></h2>
+    <p style="color:var(--text-light);margin-bottom:32px;font-size:0.97rem;">
+      荒川区に在住・在学、または「地域活動」に興味があるメンバーを募集します。
+    </p>
+    <div class="category-grid">
+ 
+      <div class="category-card junior">
+        <div class="category-icon">🏫</div>
+        <span class="category-tag">中高生参加者</span>
+        <div class="category-name">中高生参加者</div>
+        <div class="category-quota">定員：10名</div>
+        <div class="category-desc">地域やボランティアに興味がある。新しい友達が欲しい！という方、大歓迎です。</div>
+      </div>
+ 
+      <div class="category-card university">
+        <div class="category-icon">🎓</div>
+        <span class="category-tag">大学生参加者</span>
+        <div class="category-name">大学生参加者</div>
+        <div class="category-quota">定員：5名</div>
+        <div class="category-desc">中高生と同じ目線で学び、地域のネットワークを広げたい大学生を募集。</div>
+      </div>
+ 
+      <div class="category-card mentor">
+        <div class="category-icon">🌟</div>
+        <span class="category-tag">運営メンター</span>
+        <div class="category-name">大学生運営メンター</div>
+        <div class="category-quota">定員：5名</div>
+        <div class="category-desc">プログラムの進行サポートや、中高生の活動を支えたい方を募集します。</div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== MESSAGE ===== -->
+<section class="message">
+  <div class="container">
+    <span class="section-label" style="background:rgba(255,255,255,0.2);color:white;">MESSAGE</span>
+    <h2>✨ 荒川わかもの団からの<br>メッセージ</h2>
+    <p class="message-body">
+      私たちは、若者が地域でもっと自由に、もっと楽しく活動できる場を目指しています。<br><br>
+      「ただの見学」で終わらせない。<strong>大学生の先輩たちがしっかり伴走する</strong>ので、
+      初めてのボランティアでも大丈夫。<br><br>
+      この夏、荒川区の「面白い」を一緒に掘り起こしましょう！
+    </p>
+  </div>
+</section>
+ 
+<!-- ===== INFO ===== -->
+<section class="info">
+  <div class="container">
+    <span class="section-label">INFO</span>
+    <h2>📢 <span>募集要項</span></h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">参加費</div>
+        <div class="info-value">無料</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">自己負担</div>
+        <div class="info-value">交通費・飲食代</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">活動拠点</div>
+        <div class="info-value">荒川区内施設<br><small style="font-weight:400;color:var(--text-light);">町屋・南千住・日暮里エリア</small></div>
+      </div>
+      <div class="info-item" style="border-left:4px solid var(--orange);">
+        <div class="info-label" style="color:var(--orange);">申込締切</div>
+        <div class="info-value" style="color:var(--orange);">2026年5月31日（日）</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="apply">
+  <div class="container">
+    <span class="section-label">APPLY</span>
+    <h2>一緒に、荒川区の<br><span>「面白い」を掘り起こそう</span></h2>
+    <p>詳細・お申し込みは下記フォームからどうぞ。<br>初めての方も、ぜひお気軽にご応募ください！</p>
+    <a href="#" class="btn-cta">
+      📝 応募フォームへ進む
+    </a>
+    <p class="cta-deadline">申込締切：<strong>2026年5月31日（日）</strong></p>
+  </div>
+</section>
+ 
+<!-- ===== FOOTER ===== -->
+<footer>
+  <strong>荒川わかもの団</strong> ／ 荒川わかもの探究プロジェクト 2026<br>
+  活動拠点：荒川区内（町屋・南千住・日暮里エリア）
+</footer>
+ 
+</body>
+</html>
