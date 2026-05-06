@@ -7,7 +7,7 @@
      #ddeeee bg-light / #5baeae bg-dark */
   --color-base:     #9fd0d0;
   --color-sub:      #d09fd0;
-  --color-accent:   #d0d09f;
+  --color-accent:   #F2C94C;  /* 明るいサニーイエロー（旧 #d0d09f を刷新） */
   --color-bg-light: #ddeeee;
   --color-bg-dark:  #5baeae;
 
@@ -17,11 +17,11 @@
   --green-light: #9fd0d0;  /* base — primary highlight */
   --green-pale:  #ddeeee;  /* bg-light */
   --green-pale2: #BCDEDE;  /* derived between base and bg-light */
-  --yellow:  #d0d09f;      /* accent — 主アクセント */
+  --yellow:  #F2C94C;      /* accent — 明るいサニーイエロー（主アクセント） */
   --orange:  #d09fd0;      /* sub — pink-lavender accent */
   --blue:    #5baeae;
-  --olive:       #d0d09f;
-  --olive-light: #DEDEB7;
+  --olive:       #F2C94C;
+  --olive-light: #FFE48A;  /* 新yellowの明るいバリエーション */
   --cream:       #ddeeee;  /* パレット内に cream 無し → bg-light を流用 */
   --cream-deep:  #BCDEDE;
   --cream-pale:  #EFF7F7;
@@ -161,12 +161,12 @@ h2 span { color: var(--green-light); }
   padding: 16px 36px;
   border-radius: 999px;
   text-decoration: none;
-  box-shadow: 0 6px 24px rgba(208,208,159,0.5);
+  box-shadow: 0 6px 24px rgba(242,201,76,0.45);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .hero-cta:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 32px rgba(208,208,159,0.6);
+  box-shadow: 0 10px 32px rgba(242,201,76,0.55);
 }
 .hero-deadline {
   margin-top: 18px;
@@ -188,7 +188,7 @@ h2 span { color: var(--green-light); }
 .intro-lead { font-size: 1.08rem; color: var(--text-mid); line-height: 1.9; }
 .intro-highlight {
   display: inline;
-  background: linear-gradient(transparent 60%, rgba(208,208,159,0.5) 60%);
+  background: linear-gradient(transparent 60%, rgba(242,201,76,0.45) 60%);
   font-weight: 700;
 }
  
@@ -372,7 +372,7 @@ h2 span { color: var(--green-light); }
 }
 /* 3カードを base / accent / sub の3色で差別化 */
 .category-card.junior    { background: linear-gradient(135deg, #DDEEEE, #BCDEDE); border: 2px solid var(--color-base); }
-.category-card.university { background: linear-gradient(135deg, #F3F3DD, #E6E6C4); border: 2px solid var(--color-accent); }
+.category-card.university { background: linear-gradient(135deg, #FFF6D4, #FCE9A8); border: 2px solid var(--color-accent); }
 .category-card.mentor    { background: linear-gradient(135deg, #F3DDF3, #E6C4E6); border: 2px solid var(--color-sub); }
 .category-icon { font-size: 2.4rem; margin-bottom: 12px; }
 .category-tag {
@@ -464,7 +464,7 @@ h2 span { color: var(--green-light); }
 .member-avatar.green  { background: linear-gradient(135deg, var(--color-base), #BCDEDE); color: var(--text-dark); }
 .member-avatar.teal   { background: linear-gradient(135deg, var(--color-bg-dark), var(--color-base)); }
 .member-avatar.purple { background: linear-gradient(135deg, var(--color-sub), #E6C4E6); color: var(--text-dark); }
-.member-avatar.orange { background: linear-gradient(135deg, var(--color-accent), #DEDEB7); color: var(--text-dark); }
+.member-avatar.orange { background: linear-gradient(135deg, var(--color-accent), var(--olive-light)); color: var(--text-dark); }
  
 .member-info { padding: 20px 16px 24px; }
 .member-role {
