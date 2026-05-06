@@ -554,8 +554,11 @@ h2 span { color: var(--green-light); }
 }
 .info-item.accent .info-label {
   color: var(--yellow);
-  font-size: 0.78rem;
-  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 .info-item.accent .info-value {
   color: white;
