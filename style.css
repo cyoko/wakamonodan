@@ -567,7 +567,99 @@ h2 span { color: var(--green-light); }
   font-weight: 900;
   text-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
- 
+
+/* ===== FAQ ===== */
+.faq { background: var(--green-pale); }
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-item {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(45,84,84,0.08);
+  border: 1.5px solid var(--green-pale2);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.faq-item[open] {
+  box-shadow: 0 10px 28px rgba(45,84,84,0.14);
+}
+.faq-question {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 56px 18px 22px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  transition: background 0.15s;
+  line-height: 1.6;
+}
+.faq-question::-webkit-details-marker { display: none; }
+.faq-question:hover { background: var(--cream-pale); }
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--green-main);
+  font-weight: 700;
+  background: var(--green-pale);
+  border-radius: 50%;
+  transition: transform 0.25s, background 0.2s;
+  line-height: 1;
+}
+.faq-item[open] .faq-question::after {
+  content: '−';
+  background: var(--yellow);
+  color: var(--green-dark);
+  transform: translateY(-50%) rotate(180deg);
+}
+.faq-mark {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--green-main);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.85rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.faq-mark.answer {
+  background: var(--yellow);
+  color: var(--green-dark);
+}
+.faq-text { flex: 1; padding-top: 3px; }
+.faq-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 4px 22px 22px 22px;
+  font-size: 0.94rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+  border-top: 1px dashed var(--green-pale2);
+  margin-top: 4px;
+  padding-top: 18px;
+}
+.faq-answer p { flex: 1; padding-top: 3px; margin: 0; }
+
 /* ===== CTA ===== */
 .cta-section {
   background: var(--green-main);   /* HERO と同じメインティール */
