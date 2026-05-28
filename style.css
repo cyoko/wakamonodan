@@ -660,6 +660,20 @@ h2 span { color: var(--green-light); }
 }
 .faq-answer p { flex: 1; padding-top: 3px; margin: 0; }
 
+.faq-link {
+  color: var(--green-main);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--green-light);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+.faq-link:hover {
+  color: var(--green-dark);
+  text-decoration-color: var(--yellow);
+}
+
 /* ===== CTA ===== */
 .cta-section {
   background: var(--green-main);   /* HERO と同じメインティール */
